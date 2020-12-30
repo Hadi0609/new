@@ -1,1 +1,80 @@
 
+    <html>
+<head>
+    <title>Hoichoi Player</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel='stylesheet' href='https://cdn.plyr.io/3.6.2/plyr.css'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <script src="https://cdn.plyr.io/3.6.2/plyr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dashjs/3.1.3/dash.all.min.js"></script>
+</head>
+<style>
+    html {
+        font-family: Poppins;
+        background: #000;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<body><video id="videoContainer"></video></body>
+<script>
+    const video = document.getElementById("videoContainer");
+    document.addEventListener("DOMContentLoaded", function() {
+        const source = "https://hoichoihlsns.akamaized.net/vhoichoiindia2/Renditions/20201223/1608760930789_ch_s3_ep_01/dash/1608760930789_ch_s3_ep_01.mpd?hdnts=exp=1609313610~acl=/vhoichoiindia2/Renditions/20201223/1608760930789_ch_s3_ep_01/dash/*~hmac=0f980a4942cf0c442241247fb1cd40d6d469382a8503f3c8e9ebc12ba20a858a";
+        const dash = dashjs.MediaPlayer().create();
+        var defaultOptions = {
+            "autoplay": false,
+            "muted": false,
+            "loop": {
+                "active": false
+            },
+            "captions": {
+                "active": true,
+                "update": true
+            }
+        };
+        dash.initialize(video, source, false);
+        dash.updateSettings({
+            streaming: {
+                abr: {
+                    autoSwitchBitrate: {
+                        audio: false,
+                        video: false
+                    }
+                },
+                fastSwitchEnabled: true,
+                lowLatencyEnabled: true
+            }
+        });
+        dash.setProtectionData({
+            "com.widevine.alpha": {
+                "serverURL": "https://drm-widevine-licensing.axprod.net/AcquireLicense?AxDrmMessage=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoxLCJjb21fa2V5X2lkIjoiNTg0MzJDM0MtNTk0RC00NDc2LTk4NjYtQUFFOTAwQkJCRUYyIiwibWVzc2FnZSI6eyJ0eXBlIjoiZW50aXRsZW1lbnRfbWVzc2FnZSIsInZlcnNpb24iOjIsImxpY2Vuc2UiOnsiZHVyYXRpb24iOjM5NjZ9LCJjb250ZW50X2tleXNfc291cmNlIjp7ImlubGluZSI6W3siaWQiOiIxYTY0OGQ3Yy00OGJjLTQ3NDEtOGEyNC0xZTcyZTMxMDEwZWMiLCJ1c2FnZV9wb2xpY3kiOiJQb2xpY3kgQSJ9XX0sImNvbnRlbnRfa2V5X3VzYWdlX3BvbGljaWVzIjpbeyJuYW1lIjoiUG9saWN5IEEiLCJwbGF5cmVhZHkiOnsibWluX2RldmljZV9zZWN1cml0eV9sZXZlbCI6MjAwMCwicGxheV9lbmFibGVycyI6WyI3ODY2MjdEOC1DMkE2LTQ0QkUtOEY4OC0wOEFFMjU1QjAxQTciXX0sIndpZGV2aW5lIjp7ImRldmljZV9zZWN1cml0eV9sZXZlbCI6IlNXX1NFQ1VSRV9DUllQVE8ifX1dfX0.QBFlwcIzw7IQkjS5QXLClokI4lC5iSt4BS0amWGY3B4"
+            },
+            "com.microsoft.playready": {
+                "serverURL": "https://drm-playready-licensing.axprod.net/AcquireLicense?AxDrmMessage=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoxLCJjb21fa2V5X2lkIjoiNTg0MzJDM0MtNTk0RC00NDc2LTk4NjYtQUFFOTAwQkJCRUYyIiwibWVzc2FnZSI6eyJ0eXBlIjoiZW50aXRsZW1lbnRfbWVzc2FnZSIsInZlcnNpb24iOjIsImxpY2Vuc2UiOnsiZHVyYXRpb24iOjM5NjZ9LCJjb250ZW50X2tleXNfc291cmNlIjp7ImlubGluZSI6W3siaWQiOiIxYTY0OGQ3Yy00OGJjLTQ3NDEtOGEyNC0xZTcyZTMxMDEwZWMiLCJ1c2FnZV9wb2xpY3kiOiJQb2xpY3kgQSJ9XX0sImNvbnRlbnRfa2V5X3VzYWdlX3BvbGljaWVzIjpbeyJuYW1lIjoiUG9saWN5IEEiLCJwbGF5cmVhZHkiOnsibWluX2RldmljZV9zZWN1cml0eV9sZXZlbCI6MjAwMCwicGxheV9lbmFibGVycyI6WyI3ODY2MjdEOC1DMkE2LTQ0QkUtOEY4OC0wOEFFMjU1QjAxQTciXX0sIndpZGV2aW5lIjp7ImRldmljZV9zZWN1cml0eV9sZXZlbCI6IlNXX1NFQ1VSRV9DUllQVE8ifX1dfX0.QBFlwcIzw7IQkjS5QXLClokI4lC5iSt4BS0amWGY3B4"
+            }
+        });
+        dash.on("streamInitialized", function() {
+            const availableQualities = dash.getBitrateInfoListFor("video").map((l) => l.height);
+            defaultOptions.quality = {
+                default: availableQualities[0].height,
+                options: availableQualities,
+                forced: true,
+                onChange: function(newQuality) {
+                    dash.getBitrateInfoListFor("video").forEach((level, levelIndex) => {
+                        if (level.height === newQuality) {
+                            dash.setQualityFor("video", level.qualityIndex);
+                        }
+                    });
+                },
+            };
+            const player = new Plyr(video, defaultOptions);
+            window.player = player;
+            window.dash = dash;
+        });
+        dash.attachView(video);
+    });
+</script>
+</html>
