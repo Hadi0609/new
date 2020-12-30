@@ -22,7 +22,7 @@
 <script>
     const video = document.getElementById("videoContainer");
     document.addEventListener("DOMContentLoaded", function() {
-        const source = "https://hoichoihlsns.akamaized.net/vhoichoiindia2/Renditions/20201223/1608760930789_ch_s3_ep_01/dash/1608760930789_ch_s3_ep_01.mpd?hdnts=exp=1609313610~acl=/vhoichoiindia2/Renditions/20201223/1608760930789_ch_s3_ep_01/dash/*~hmac=0f980a4942cf0c442241247fb1cd40d6d469382a8503f3c8e9ebc12ba20a858a";
+        const source = "";
         const dash = dashjs.MediaPlayer().create();
         var defaultOptions = {
             "autoplay": false,
@@ -50,10 +50,10 @@
         });
         dash.setProtectionData({
             "com.widevine.alpha": {
-                "serverURL": "https://drm-widevine-licensing.axprod.net/AcquireLicense?AxDrmMessage=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoxLCJjb21fa2V5X2lkIjoiNTg0MzJDM0MtNTk0RC00NDc2LTk4NjYtQUFFOTAwQkJCRUYyIiwibWVzc2FnZSI6eyJ0eXBlIjoiZW50aXRsZW1lbnRfbWVzc2FnZSIsInZlcnNpb24iOjIsImxpY2Vuc2UiOnsiZHVyYXRpb24iOjM5NjZ9LCJjb250ZW50X2tleXNfc291cmNlIjp7ImlubGluZSI6W3siaWQiOiIxYTY0OGQ3Yy00OGJjLTQ3NDEtOGEyNC0xZTcyZTMxMDEwZWMiLCJ1c2FnZV9wb2xpY3kiOiJQb2xpY3kgQSJ9XX0sImNvbnRlbnRfa2V5X3VzYWdlX3BvbGljaWVzIjpbeyJuYW1lIjoiUG9saWN5IEEiLCJwbGF5cmVhZHkiOnsibWluX2RldmljZV9zZWN1cml0eV9sZXZlbCI6MjAwMCwicGxheV9lbmFibGVycyI6WyI3ODY2MjdEOC1DMkE2LTQ0QkUtOEY4OC0wOEFFMjU1QjAxQTciXX0sIndpZGV2aW5lIjp7ImRldmljZV9zZWN1cml0eV9sZXZlbCI6IlNXX1NFQ1VSRV9DUllQVE8ifX1dfX0.QBFlwcIzw7IQkjS5QXLClokI4lC5iSt4BS0amWGY3B4"
+                "serverURL": "AcquireLicense?="
             },
             "com.microsoft.playready": {
-                "serverURL": "https://drm-playready-licensing.axprod.net/AcquireLicense?AxDrmMessage=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJzaW9uIjoxLCJjb21fa2V5X2lkIjoiNTg0MzJDM0MtNTk0RC00NDc2LTk4NjYtQUFFOTAwQkJCRUYyIiwibWVzc2FnZSI6eyJ0eXBlIjoiZW50aXRsZW1lbnRfbWVzc2FnZSIsInZlcnNpb24iOjIsImxpY2Vuc2UiOnsiZHVyYXRpb24iOjM5NjZ9LCJjb250ZW50X2tleXNfc291cmNlIjp7ImlubGluZSI6W3siaWQiOiIxYTY0OGQ3Yy00OGJjLTQ3NDEtOGEyNC0xZTcyZTMxMDEwZWMiLCJ1c2FnZV9wb2xpY3kiOiJQb2xpY3kgQSJ9XX0sImNvbnRlbnRfa2V5X3VzYWdlX3BvbGljaWVzIjpbeyJuYW1lIjoiUG9saWN5IEEiLCJwbGF5cmVhZHkiOnsibWluX2RldmljZV9zZWN1cml0eV9sZXZlbCI6MjAwMCwicGxheV9lbmFibGVycyI6WyI3ODY2MjdEOC1DMkE2LTQ0QkUtOEY4OC0wOEFFMjU1QjAxQTciXX0sIndpZGV2aW5lIjp7ImRldmljZV9zZWN1cml0eV9sZXZlbCI6IlNXX1NFQ1VSRV9DUllQVE8ifX1dfX0.QBFlwcIzw7IQkjS5QXLClokI4lC5iSt4BS0amWGY3B4"
+                "serverURL": "AcquireLicense?="
             }
         });
         dash.on("streamInitialized", function() {
